@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="CalculatorTestSuite" parallel="methods" thread-count="4" verbose="2">
+
+    <test name="ArithmeticTests" parallel="methods" thread-count="4">
+        <groups><run>
+            <include name="arithmetic"/>
+        </run></groups>
+        <classes>
+            <class name="com.epam.tat.tests.SumLongTest"/>
+            <class name="com.epam.tat.tests.SumDoubleTest"/>
+            <class name="com.epam.tat.tests.SubLongTest"/>
+            <class name="com.epam.tat.tests.SubDoubleTest"/>
+            <class name="com.epam.tat.tests.MultLongTest"/>
+            <class name="com.epam.tat.tests.MultDoubleTest"/>
+            <class name="com.epam.tat.tests.DivLongTest"/>
+            <class name="com.epam.tat.tests.DivDoubleTest"/>
+        </classes>
+    </test>
+
+    <test name="AdvancedMathTests" parallel="methods" thread-count="2">
+        <groups><run>
+            <include name="advanced"/>
+        </run></groups>
+        <classes>
+            <class name="com.epam.tat.tests.PowTest"/>
+            <class name="com.epam.tat.tests.SqrtTest"/>
+        </classes>
+    </test>
+
+    <test name="TrigonometryTests" parallel="methods" thread-count="4">
+        <groups><run>
+            <include name="trigonometry"/>
+        </run></groups>
+        <classes>
+            <class name="com.epam.tat.tests.SinTest"/>
+            <class name="com.epam.tat.tests.CosTest"/>
+            <class name="com.epam.tat.tests.TgTest"/>
+            <class name="com.epam.tat.tests.CtgTest"/>
+        </classes>
+    </test>
+
+    <test name="BooleanCheckTests" parallel="methods" thread-count="2">
+        <groups><run>
+            <include name="boolean-checks"/>
+        </run></groups>
+        <classes>
+            <class name="com.epam.tat.tests.IsPositiveTest"/>
+            <class name="com.epam.tat.tests.IsNegativeTest"/>
+        </classes>
+    </test>
+
+</suite>
