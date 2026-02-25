@@ -1,4 +1,4 @@
-﻿package com.epam.tat.tests;
+package com.epam.tat.tests;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
