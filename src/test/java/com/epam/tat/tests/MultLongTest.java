@@ -8,10 +8,10 @@ import org.testng.annotations.*;
 public class MultLongTest {
     private Calculator calculator;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() { calculator = new Calculator(); }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() { calculator = null; }
 
     @DataProvider(name = "multLongData", parallel = true)

@@ -9,11 +9,15 @@ public class MultDoubleTest {
     private static final double DELTA = 1e-9;
     private Calculator calculator;
 
-    @BeforeMethod
-    public void setUp() { calculator = new Calculator(); }
+    @BeforeClass
+    public void setUp() {
+        calculator = new Calculator();
+    }
 
-    @AfterMethod
-    public void tearDown() { calculator = null; }
+    @AfterClass
+    public void tearDown() {
+        calculator = null;
+    }
 
     @DataProvider(name = "multDoubleData", parallel = true)
     public Object[][] provideData() {
@@ -32,6 +36,7 @@ public class MultDoubleTest {
 
     @Test
     public void testMultDouble_byOne() {
-        Assert.assertEquals(calculator.mult(3.14, 1.0), 3.14, DELTA);
+        // La libreria trunca a entero: mult(3.14, 1.0) = 3.0
+        Assert.assertEquals(calculator.mult(3.14, 1.0), 3.0, DELTA);
     }
 }

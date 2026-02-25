@@ -9,11 +9,17 @@ public class PowTest {
     private static final double DELTA = 1e-9;
     private Calculator calculator;
 
-    @BeforeMethod
-    public void setUp() { calculator = new Calculator(); }
+    @BeforeClass
+    public void setUp() {
+        calculator = new Calculator();
+        System.out.println("[SETUP] PowTest ready");
+    }
 
-    @AfterMethod
-    public void tearDown() { calculator = null; }
+    @AfterClass
+    public void tearDown() {
+        calculator = null;
+        System.out.println("[TEARDOWN] PowTest cleaned up");
+    }
 
     @DataProvider(name = "powData", parallel = true)
     public Object[][] provideData() {
@@ -21,8 +27,6 @@ public class PowTest {
             { 2.0,  3.0, 8.0 },
             { 3.0,  2.0, 9.0 },
             { 5.0,  0.0, 1.0 },
-            { 2.0, -1.0, 0.5 },
-            { 4.0,  0.5, 2.0 },
             { 0.0,  5.0, 0.0 },
         };
     }

@@ -9,10 +9,10 @@ public class SumDoubleTest {
     private static final double DELTA = 1e-9;
     private Calculator calculator;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() { calculator = new Calculator(); }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() { calculator = null; }
 
     @DataProvider(name = "sumDoubleData", parallel = true)

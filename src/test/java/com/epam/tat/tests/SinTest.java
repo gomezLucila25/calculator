@@ -9,11 +9,17 @@ public class SinTest {
     private static final double DELTA = 1e-9;
     private Calculator calculator;
 
-    @BeforeMethod
-    public void setUp() { calculator = new Calculator(); }
+    @BeforeClass
+    public void setUp() {
+        calculator = new Calculator();
+        System.out.println("[SETUP] SinTest ready");
+    }
 
-    @AfterMethod
-    public void tearDown() { calculator = null; }
+    @AfterClass
+    public void tearDown() {
+        calculator = null;
+        System.out.println("[TEARDOWN] SinTest cleaned up");
+    }
 
     @DataProvider(name = "sinData", parallel = true)
     public Object[][] provideData() {

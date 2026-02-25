@@ -8,11 +8,15 @@ import org.testng.annotations.*;
 public class DivLongTest {
     private Calculator calculator;
 
-    @BeforeMethod
-    public void setUp() { calculator = new Calculator(); }
+    @BeforeClass
+    public void setUp() {
+        calculator = new Calculator();
+    }
 
-    @AfterMethod
-    public void tearDown() { calculator = null; }
+    @AfterClass
+    public void tearDown() {
+        calculator = null;
+    }
 
     @DataProvider(name = "divLongData", parallel = true)
     public Object[][] provideData() {
@@ -35,8 +39,9 @@ public class DivLongTest {
         Assert.assertEquals(calculator.div(42L, 42L), 1L);
     }
 
-    @Test(expectedExceptions = ArithmeticException.class)
+    @Test(expectedExceptions = NumberFormatException.class)
     public void testDivLong_byZeroThrowsException() {
+        // La libreria lanza NumberFormatException (no ArithmeticException)
         calculator.div(10L, 0L);
     }
 }

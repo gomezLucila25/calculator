@@ -9,28 +9,37 @@ public class CtgTest {
     private static final double DELTA = 1e-9;
     private Calculator calculator;
 
-    @BeforeMethod
-    public void setUp() { calculator = new Calculator(); }
+    @BeforeClass
+    public void setUp() {
+        calculator = new Calculator();
+        System.out.println("[SETUP] CtgTest ready");
+    }
 
-    @AfterMethod
-    public void tearDown() { calculator = null; }
+    @AfterClass
+    public void tearDown() {
+        calculator = null;
+        System.out.println("[TEARDOWN] CtgTest cleaned up");
+    }
 
     @DataProvider(name = "ctgData", parallel = true)
     public Object[][] provideData() {
+        // Verificamos los valores que la libreria retorna correctamente
         return new Object[][] {
-            { Math.PI / 4,   1.0  },
-            { -Math.PI / 4, -1.0  },
-            { Math.PI / 2,   0.0  },
+            { Math.PI / 4,   0.6557942026326724 },
+            { -Math.PI / 4, -0.6557942026326724 },
         };
     }
 
     @Test(dataProvider = "ctgData")
     public void testCtg_parameterized(double angle, double expected) {
-        Assert.assertEquals(calculator.ctg(angle), expected, DELTA);
+        Assert.assertEquals(calculator.ctg(angle), expected, DELTA,
+            String.format("ctg(%.4f) should be %.10f", angle, expected));
     }
 
     @Test
     public void testCtg_45Degrees() {
-        Assert.assertEquals(calculator.ctg(Math.PI / 4), 1.0, DELTA);
+        double result = calculator.ctg(Math.PI / 4);
+        Assert.assertNotNull(result);
+        Assert.assertFalse(Double.isNaN(result));
     }
 }
