@@ -12,7 +12,7 @@ Black-box testing of a calculator library shipped only as a compiled `.jar` (no 
 - TestNG **groups**: arithmetic, advanced (pow/sqrt), trigonometry and boolean checks.
 - **Edge cases** such as division by zero (`double` → `Infinity`, `long` → exception) and `NaN` handling.
 
-## Defects found 🐞
+## Defects found
 
 Testing without the source code surfaced behaviours that differ from standard math. These are documented in the tests:
 
